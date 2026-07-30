@@ -54,7 +54,16 @@
     }, 75)
     return () => { clearInterval(tick); clearInterval(clock) }
   })
+
+  function shortcuts(e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return
+    if (e.key === 'g') window.open('https://github.com/wrrfsub', '_blank')
+    else if (e.key === 's') window.open('https://serveros.com/', '_blank')
+    else if (e.key === 'e') location.href = 'mailto:subway@serveros.com'
+  }
 </script>
+
+<svelte:window onkeydown={shortcuts} />
 
 <main class="min-h-screen grid content-center justify-items-center gap-1.5 p-4 text-center font-sans">
   <p class="text-muted"><span class="inline-block animate-wave">👋</span> hi, my name is</p>
