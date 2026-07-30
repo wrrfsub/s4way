@@ -21,6 +21,15 @@
   to { background-position: 300% 0; }
 }
 
+/* usage bar fills in on load */
+.usage-bar {
+  animation: fill 1.2s cubic-bezier(0.25, 1, 0.4, 1) 0.4s backwards;
+  transform-origin: left;
+}
+@keyframes fill {
+  from { transform: scaleX(0); }
+}
+
 @keyframes wave {
   0%, 100% { transform: rotate(0deg); }
   25% { transform: rotate(14deg); }
