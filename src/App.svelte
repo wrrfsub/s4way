@@ -82,6 +82,10 @@
     <h2 class="mb-1.5 text-xs uppercase tracking-[0.15em] text-faint">currently</h2>
     <p class="leading-relaxed text-soft">breaking prod panels at <a href="https://serveros.com/">serveros</a>, on purpose (mostly).</p>
   </section>
+  <section class="mt-7 max-w-[36ch]">
+    <h2 class="mb-1.5 text-xs uppercase tracking-[0.15em] text-faint">off the clock</h2>
+    <p class="leading-relaxed text-soft">i have no life. i doomscroll, live on discord, and the rest goes to zed.</p>
+  </section>
   <nav class="mt-6 flex gap-6">
     <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="https://github.com/wrrfsub">github</a>
     <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="https://serveros.com/">serveros</a>
