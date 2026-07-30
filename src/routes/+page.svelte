@@ -27,11 +27,6 @@
   }
 
   let visits = $state(null)
-  fetch('https://abacus.jasoncameron.dev/hit/s4way-serveros/portfolio')
-    .then((r) => r.json())
-    .then((d) => (visits = d.value))
-    .catch(() => {})
-
   let time = $state('')
   const clockFmt = new Intl.DateTimeFormat('en-US', {
     hour: 'numeric',
@@ -41,6 +36,10 @@
 
   onMount(() => {
     scramble()
+    fetch('https://abacus.jasoncameron.dev/hit/s4way-serveros/portfolio')
+      .then((r) => r.json())
+      .then((d) => (visits = d.value))
+      .catch(() => {})
     time = clockFmt.format(new Date())
     const clock = setInterval(() => (time = clockFmt.format(new Date())), 10000)
     let i = 0, pos = 0, dir = 1, wait = 0
@@ -120,6 +119,7 @@
     <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="https://discord.com/users/1338099754080665651">discord</a>
     <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="https://serveros.com/">serveros</a>
     <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="mailto:subway@serveros.com">email</a>
+    <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="/blog">blog</a>
   </nav>
   {#if denied}
     <div class="fixed bottom-10 left-1/2 -translate-x-1/2 rounded border border-red-400/40 bg-panel px-4 py-2 font-mono text-xs text-red-400">
