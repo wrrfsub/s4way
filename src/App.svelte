@@ -59,6 +59,7 @@
     if (e.metaKey || e.ctrlKey || e.altKey) return
     if (e.key === 'g') window.open('https://github.com/wrrfsub', '_blank')
     else if (e.key === 's') window.open('https://serveros.com/', '_blank')
+    else if (e.key === 'd') window.open('https://discord.com/users/1338099754080665651', '_blank')
     else if (e.key === 'e') location.href = 'mailto:subway@serveros.com'
   }
 </script>
@@ -98,6 +99,7 @@
   </section>
   <nav class="mt-6 flex gap-6">
     <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="https://github.com/wrrfsub">github</a>
+    <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="https://discord.com/users/1338099754080665651">discord</a>
     <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="https://serveros.com/">serveros</a>
     <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="mailto:subway@serveros.com">email</a>
   </nav>
@@ -105,3 +107,4 @@
     <span class="h-2 w-2 rounded-full bg-[#7dd87d]"></span> probably online · kathmandu, nepal {time}{#if visits} · {visits} visits{/if} · © 2026 s4way
   </footer>
 </main>
+
