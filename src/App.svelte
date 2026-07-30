@@ -55,14 +55,32 @@
     return () => { clearInterval(tick); clearInterval(clock) }
   })
 
+  let denied = $state(false)
+  let typed = ''
+
   function shortcuts(e) {
     if (e.metaKey || e.ctrlKey || e.altKey) return
+    if (e.key.length === 1) {
+      typed = (typed + e.key).slice(-10)
+      if (typed.endsWith('rm -rf')) {
+        denied = true
+        scramble()
+        setTimeout(() => (denied = false), 3000)
+        return
+      }
+    }
     if (e.key === 'g') window.open('https://github.com/wrrfsub', '_blank')
     else if (e.key === 's') window.open('https://serveros.com/', '_blank')
     else if (e.key === 'd') window.open('https://discord.com/users/1338099754080665651', '_blank')
     else if (e.key === 'e') location.href = 'mailto:subway@serveros.com'
   }
+
+  function onVisibility() {
+    document.title = document.hidden ? 'come back 👀' : 's4way'
+  }
 </script>
+
+<svelte:document onvisibilitychange={onVisibility} />
 
 <svelte:window onkeydown={shortcuts} />
 
@@ -103,6 +121,11 @@
     <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="https://serveros.com/">serveros</a>
     <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="mailto:subway@serveros.com">email</a>
   </nav>
+  {#if denied}
+    <div class="fixed bottom-10 left-1/2 -translate-x-1/2 rounded border border-red-400/40 bg-panel px-4 py-2 font-mono text-xs text-red-400">
+      rm: cannot remove '/': permission denied. nice try.
+    </div>
+  {/if}
   <footer class="mt-12 flex items-center gap-1.5 text-xs text-faint">
     <span class="h-2 w-2 rounded-full bg-[#7dd87d]"></span> probably online · kathmandu, nepal {time}{#if visits} · {visits} visits{/if} · © 2026 s4way
   </footer>
