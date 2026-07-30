@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a {
+    color: theme(colors.accent);
+  }
+}
+
+/* animated purple gradient on the name */
+.name-shimmer {
+  background: linear-gradient(90deg, #b78aff, #e8e0f5, #7c5cff, #b78aff);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+@keyframes shimmer {
+  to { background-position: 300% 0; }
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(14deg); }
+  75% { transform: rotate(-8deg); }
+}
+.animate-wave {
+  animation: wave 1.2s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+}
+main > * {
+  animation: rise 0.5s ease-out backwards;
+}
+main > :nth-child(2) { animation-delay: 0.05s; }
+main > :nth-child(3) { animation-delay: 0.1s; }
+main > :nth-child(4) { animation-delay: 0.15s; }
+main > :nth-child(5) { animation-delay: 0.2s; }
+main > :nth-child(6) { animation-delay: 0.25s; }
+main > :nth-child(7) { animation-delay: 0.3s; }
+main > :nth-child(8) { animation-delay: 0.35s; }
+main > :nth-child(9) { animation-delay: 0.4s; }
