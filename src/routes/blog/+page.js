@@ -4,7 +4,7 @@ export function load() {
     .map(([path, m]) => ({
       slug: path.split('/').pop().replace('.md', ''),
       title: m.metadata.title,
-      date: m.metadata.date,
+      date: String(m.metadata.date).slice(0, 10),
     }))
     .sort((a, b) => (a.date < b.date ? 1 : -1))
   return { posts }

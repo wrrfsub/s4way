@@ -21,6 +21,21 @@
   to { background-position: 300% 0; }
 }
 
+/* dog bark on click */
+.bark {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  font-family: ui-monospace, monospace;
+  font-size: 0.8rem;
+  color: theme(colors.accent);
+  animation: bark-float 0.9s ease-out forwards;
+}
+@keyframes bark-float {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-28px); }
+}
+
 /* markdown post body */
 .post p, .post ul, .post ol {
   margin: 1rem 0;
