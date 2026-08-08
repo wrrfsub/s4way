@@ -231,6 +231,6 @@
   {/if}
 
   <footer class="border-t border-black/5 pt-6 text-xs text-neutral-400 dark:border-white/5 dark:text-neutral-500">
-    kathmandu, nepal · {time}{#if visits} · {visits} visits{/if} · © 2026 s4way
+    chitwan, nepal · {time}{#if visits} · {visits} visits{/if} · © 2026 s4way
   </footer>
 </main>
