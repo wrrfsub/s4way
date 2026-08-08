@@ -91,6 +91,18 @@
       ],
     },
     {
+      role: 'developer',
+      company: 'skyraincloud',
+      url: 'https://www.skyraincloud.in/',
+      logo: '/tools/skyraincloud.webp',
+      about: 'indian hosting provider: minecraft and game hosting, vps, dedicated servers and web hosting from tier-3 data centers.',
+      period: '12/2024 – 05/2026',
+      points: [
+        'worked as a developer across the hosting platform, building and maintaining features around the game panel and client side.',
+        'helped keep game servers, vps and web hosting running smoothly for customers.',
+      ],
+    },
+    {
       role: 'support',
       company: 'servermint',
       url: 'https://servermint.app/',
@@ -108,6 +120,7 @@
     { group: 'development', items: [
       { name: 'laravel', icon: '/tools/laravel.svg', url: 'https://laravel.com' },
       { name: 'react', icon: '/tools/react.svg', url: 'https://react.dev' },
+      { name: 'node.js', icon: '/tools/nodedotjs.svg', url: 'https://nodejs.org' },
       { name: 'svelte', icon: '/tools/svelte.svg', url: 'https://svelte.dev' },
       { name: 'tailwind css', icon: '/tools/tailwindcss.svg', url: 'https://tailwindcss.com' },
     ]},
@@ -119,9 +132,9 @@
       { name: 'vercel', icon: '/tools/vercel.svg', invert: true, url: 'https://vercel.com' },
     ]},
     { group: 'game servers', items: [
+      { name: 'serveros', icon: '/tools/serveros.png', zoom: true, url: 'https://serveros.com' },
       { name: 'pterodactyl', icon: '/tools/pterodactyl.svg', url: 'https://pterodactyl.io' },
       { name: 'calagopus', icon: '/tools/calagopus-logo.svg', url: 'https://calagopus.com' },
-      { name: 'serveros', icon: '/tools/serveros.png', zoom: true, url: 'https://serveros.com' },
     ]},
     { group: 'editor & terminal', items: [
       { name: 'zed', icon: '/tools/zedindustries.svg', url: 'https://zed.dev' },
@@ -165,7 +178,7 @@
     <p class="mt-2 leading-7 text-neutral-600 dark:text-neutral-400">
       engineer (developer) at
       <a class="inline-flex items-baseline gap-1 font-medium text-neutral-900 underline underline-offset-2 dark:text-white" href="https://serveros.com/">
-        <img src="/tools/serveros.png" alt="" class="h-4 w-4 scale-150 self-center" />serveros</a>.
+        <img src="/tools/serveros.png" alt="" class="h-4 w-4 self-center" />serveros</a>.
       i build and break things on servers.
     </p>
     <p class="mt-3 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
@@ -191,14 +204,14 @@
   </section>
 
   <section class="py-8">
-    <h2 class="text-sm font-medium text-neutral-400 dark:text-neutral-500">experience</h2>
+    <h2 class="text-sm font-medium capitalize text-neutral-400 dark:text-neutral-500">experience</h2>
     <div class="relative mt-4">
       <div class="{showAllJobs ? '' : 'max-h-80 overflow-hidden'}">
-        <div class="absolute bottom-2 left-[19px] top-2 w-px bg-neutral-200 dark:bg-neutral-800"></div>
+        <div class="absolute bottom-2 left-[17px] top-2 w-px bg-neutral-200 dark:bg-neutral-800"></div>
         <div class="space-y-8">
         {#each jobs as job}
           <div class="relative flex gap-4">
-            <div class="z-10 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-black/5 bg-white dark:border-white/10 dark:bg-neutral-900">
+            <div class="z-10 flex h-[35px] w-[35px] shrink-0 items-center justify-center overflow-hidden rounded-full border border-black/5 bg-white dark:border-white/10 dark:bg-neutral-900">
               {#if job.logo}
                 <img src={job.logo} alt={job.company} class="h-full w-full object-cover" />
               {:else}
@@ -207,18 +220,18 @@
             </div>
             <div class="min-w-0 flex-1">
               <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                <p class="font-medium">{job.role}</p>
+                <p class="font-medium capitalize">{job.role}</p>
                 <span class="shrink-0 text-xs text-neutral-400 dark:text-neutral-500">remote · {job.period}</span>
               </div>
               <p class="mt-0.5 text-sm text-neutral-500 dark:text-neutral-400">
-                {#if job.url}<a class="hover:underline" href={job.url}>{job.company}</a>{:else}{job.company}{/if}
+                {#if job.url}<a class="capitalize hover:underline" href={job.url}>{job.company}</a>{:else}<span class="capitalize">{job.company}</span>{/if}
               </p>
               {#if job.about}
-                <p class="mt-1 text-xs leading-5 text-neutral-400 dark:text-neutral-500">{job.about}</p>
+                <p class="mt-1 text-xs leading-5 first-letter:uppercase text-neutral-400 dark:text-neutral-500">{job.about}</p>
               {/if}
               <ul class="mt-2 list-disc space-y-1 pl-4 text-sm leading-6 text-neutral-600 marker:text-neutral-300 dark:text-neutral-400 dark:marker:text-neutral-700">
                 {#each job.points as point}
-                  <li>{point}</li>
+                  <li class="first-letter:uppercase">{point}</li>
                 {/each}
               </ul>
             </div>
@@ -241,7 +254,7 @@
   </section>
 
   <section class="py-8">
-    <h2 class="text-sm font-medium text-neutral-400 dark:text-neutral-500">tools</h2>
+    <h2 class="text-sm font-medium capitalize text-neutral-400 dark:text-neutral-500">tools</h2>
     <div class="mt-4 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
       {#each tools as t}
         <div>
@@ -267,7 +280,7 @@
   </section>
 
   <section class="py-8">
-    <h2 class="text-sm font-medium text-neutral-400 dark:text-neutral-500">blog</h2>
+    <h2 class="text-sm font-medium capitalize text-neutral-400 dark:text-neutral-500">blog</h2>
     <div class="mt-2">
       {#each data.posts as post}
         <a href={`/blog/${post.slug}/`} class="group -mx-3 block rounded-lg px-3 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-900/60">
