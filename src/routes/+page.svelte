@@ -95,6 +95,7 @@
     ]},
     { group: 'game servers', items: [
       { name: 'pterodactyl', icon: '/tools/pterodactyl.svg', url: 'https://pterodactyl.io' },
+      { name: 'calagopus', icon: '/tools/calagopus-logo.svg', url: 'https://calagopus.com' },
       { name: 'serveros', icon: '/tools/serveros.png', zoom: true, url: 'https://serveros.com' },
     ]},
     { group: 'editor & terminal', items: [
@@ -215,7 +216,9 @@
       {#each data.posts as post}
         <a href={`/blog/${post.slug}/`} class="group -mx-3 block rounded-lg px-3 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-900/60">
           <div class="flex items-baseline justify-between gap-4">
-            <p class="font-medium group-hover:underline group-hover:underline-offset-2">{post.title}</p>
+            <p class="font-medium group-hover:underline group-hover:underline-offset-2">
+              {#if post.titleHtml}{@html post.titleHtml}{:else}{post.title}{/if}
+            </p>
             <span class="shrink-0 text-xs text-neutral-400 dark:text-neutral-500">{post.dateNice}</span>
           </div>
           {#if post.description}

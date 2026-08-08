@@ -19,6 +19,7 @@ export function getPosts() {
         dateNice: niceDate(date),
         minutes: Math.max(1, Math.round(words / 200)),
         description: m.metadata.description ?? '',
+        titleHtml: m.metadata.titleHtml ?? null,
       }
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1))

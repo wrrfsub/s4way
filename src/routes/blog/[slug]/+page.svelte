@@ -10,7 +10,9 @@
 
 <main class="pb-16">
   <a class="text-xs text-neutral-400 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-white" href="/blog/">← blog</a>
-  <h1 class="mt-4 text-2xl font-semibold tracking-tight">{data.title}</h1>
+  <h1 class="mt-4 text-2xl font-semibold tracking-tight">
+    {#if data.titleHtml}{@html data.titleHtml}{:else}{data.title}{/if}
+  </h1>
   <p class="mt-1.5 text-xs text-neutral-400 dark:text-neutral-500">{data.dateNice} · {data.minutes} min read</p>
   <article class="post mt-6">
     <Content />

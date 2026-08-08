@@ -99,6 +99,7 @@ main > :nth-child(6) { animation-delay: 0.25s; }
   @apply my-4 overflow-x-auto rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900;
 }
 .post pre code { @apply bg-transparent p-0; }
+.post img { @apply my-4 rounded-lg; }
 
 /* prism syntax colors, muted to match the theme */
 .post .token.comment,
