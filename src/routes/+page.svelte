@@ -230,15 +230,8 @@
     </div>
   {/if}
 
-  <footer class="footer-bleed relative mt-10 overflow-hidden pt-10">
-    <div class="footer-glow" aria-hidden="true"></div>
-    <div class="relative mx-auto max-w-xl px-6 pb-8 text-center">
-      <p aria-hidden="true" class="select-none bg-gradient-to-b from-purple-500 via-purple-400 to-transparent bg-clip-text pb-2 text-[clamp(5rem,24vw,9rem)] font-bold leading-none tracking-tighter text-transparent dark:from-purple-300 dark:via-purple-400">
-        subway
-      </p>
-      <p class="mt-4 text-xs text-neutral-500 dark:text-neutral-400">
-        chitwan, nepal · {time}{#if visits} · {visits} visits{/if} · © 2026 s4way
-      </p>
-    </div>
+  <footer class="border-t border-black/5 pt-6 text-xs text-neutral-400 dark:border-white/5 dark:text-neutral-500">
+    chitwan, nepal · {time}{#if visits} · {visits} visits{/if} · © 2026
+    <a href="/Shakti_Rimal_Resume.pdf" target="_blank" class="hover:text-neutral-900 hover:underline dark:hover:text-white">s4way</a>
   </footer>
 </main>
