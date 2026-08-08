@@ -52,9 +52,9 @@
 </script>
 
 <div class="mx-auto max-w-xl px-6 font-sans">
-  <header class="flex items-center justify-between py-8">
+  <header class="flex items-center justify-between gap-3 py-6 sm:py-8">
     <a href="/" class="font-semibold">s4way</a>
-    <nav class="flex items-center gap-5 text-sm text-neutral-500 dark:text-neutral-400">
+    <nav class="flex flex-wrap items-center justify-end gap-3 text-sm text-neutral-500 dark:text-neutral-400 sm:gap-5">
       <a class="hover:text-neutral-900 dark:hover:text-white" href="/blog/">blog</a>
       <a class="hover:text-neutral-900 dark:hover:text-white" href="https://github.com/wrrfsub">github</a>
       <a class="hover:text-neutral-900 dark:hover:text-white" href="https://discord.com/users/1338099754080665651">discord</a>

@@ -53,6 +53,25 @@
   mix-blend-mode: normal;
 }
 
+/* gradient text cycles through hues */
+@keyframes hue {
+  to { filter: hue-rotate(360deg); }
+}
+.animate-hue {
+  animation: hue 5s linear infinite;
+}
+
+/* avatar bobs gently */
+@keyframes float {
+  50% { transform: translateY(-4px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-float { animation: none; }
+}
+
 /* gentle fade-up on page sections */
 @keyframes rise {
   from { opacity: 0; transform: translateY(6px); }

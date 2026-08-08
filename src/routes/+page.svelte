@@ -12,14 +12,21 @@
     timeZone: 'Asia/Kathmandu',
   })
 
+  let age = $state('')
+  const BIRTH = Date.UTC(2008, 11, 12)
+  const YEAR_MS = 365.2425 * 86400000
+
   onMount(() => {
+    const tickAge = () => (age = ((Date.now() - BIRTH) / YEAR_MS).toFixed(9))
+    tickAge()
+    const ageTimer = setInterval(tickAge, 50)
     time = clockFmt.format(new Date())
     const clock = setInterval(() => (time = clockFmt.format(new Date())), 10000)
     fetch('https://abacus.jasoncameron.dev/hit/s4way-serveros/portfolio')
       .then((r) => r.json())
       .then((d) => (visits = d.value))
       .catch(() => {})
-    return () => clearInterval(clock)
+    return () => { clearInterval(clock); clearInterval(ageTimer) }
   })
 
   let denied = $state(false)
@@ -50,6 +57,8 @@
       role: 'junior software engineer & support',
       company: 'serveros',
       url: 'https://serveros.com/',
+      logo: '/tools/serveros.png',
+      about: 'the operating system for game server infrastructure: connect the servers you already own, deploy games, watch performance, manage backups from one dashboard.',
       period: '08/2026 – present',
       points: [
         'build and maintain custom features for the game server management panel, across the interface and the systems behind it.',
@@ -58,8 +67,22 @@
       ],
     },
     {
+      role: 'founder & freelance developer',
+      company: 'subwaystudios',
+      logo: '/tools/subwaystudios.png',
+      about: 'small freelance studio delivering custom development work.',
+      period: '02/2024 – present',
+      points: [
+        'founded and run a small freelance studio delivering custom development work for clients.',
+        'handle projects independently from first brief through build, delivery, and after-launch support.',
+        'single point of contact for clients throughout.',
+      ],
+    },
+    {
       role: 'admin & support',
       company: 'mcsets',
+      logo: '/tools/mcsets.webp',
+      about: 'store builder for minecraft servers: you open shop, they handle the rest, you chill.',
       period: '12/2025 – 06/2026',
       points: [
         'guided users through store setup, resolving configuration problems and questions along the way.',
@@ -68,13 +91,15 @@
       ],
     },
     {
-      role: 'founder & freelance developer',
-      company: 'subwaystudios',
-      period: '02/2024 – present',
+      role: 'support',
+      company: 'servermint',
+      url: 'https://servermint.app/',
+      logo: '/tools/servermint.png',
+      about: 'desktop app for game server management: create, configure and deploy minecraft servers instantly.',
+      period: '07/2025 – 09/2025',
       points: [
-        'founded and run a small freelance studio delivering custom development work for clients.',
-        'handle projects independently from first brief through build, delivery, and after-launch support.',
-        'single point of contact for clients throughout.',
+        'helped users get servermint set up from scratch, walking them through installation and first configuration.',
+        'answered day-to-day support questions and turned recurring ones into clearer setup guidance.',
       ],
     },
   ]
@@ -119,8 +144,24 @@
 
 <main class="pb-16">
   <section class="py-10">
-    <img src="/img/s4way.webp" alt="s4way" class="h-16 w-16 rounded-full" />
-    <h1 class="mt-5 text-2xl font-semibold tracking-tight">s4way</h1>
+    <img src="/img/s4way.webp" alt="s4way" class="animate-float h-16 w-16 rounded-full" />
+    <div class="mt-5 flex items-center gap-3">
+      <h1 class="text-2xl font-semibold tracking-tight">s4way</h1>
+      <a href="mailto:saktirimala@gmail.com" class="relative inline-flex overflow-hidden rounded-full p-px">
+        <span class="absolute inset-[-100%] animate-[spin_2.5s_linear_infinite,hue_5s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#10b981_35%,#34d399_50%,transparent_65%)]"></span>
+        <span class="relative inline-flex items-center gap-1.5 rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+          </span>
+          open to work
+        </span>
+      </a>
+    </div>
+    <p class="mt-2 leading-7 text-neutral-600 dark:text-neutral-400">
+      hi, i'm shakti from nepal 🇳🇵. i'm <span class="font-medium tabular-nums text-neutral-900 dark:text-white">{age || '17'}</span> years old,
+      self taught, and i like working in the hosting industry.
+    </p>
     <p class="mt-2 leading-7 text-neutral-600 dark:text-neutral-400">
       engineer (developer) at
       <a class="inline-flex items-baseline gap-1 font-medium text-neutral-900 underline underline-offset-2 dark:text-white" href="https://serveros.com/">
@@ -152,26 +193,41 @@
   <section class="py-8">
     <h2 class="text-sm font-medium text-neutral-400 dark:text-neutral-500">experience</h2>
     <div class="relative mt-4">
-      <div class="space-y-8 {showAllJobs ? '' : 'max-h-80 overflow-hidden'}">
-      {#each jobs as job}
-        <div>
-          <div class="flex items-baseline justify-between gap-4">
-            <p class="font-medium">{job.role}</p>
-            <span class="shrink-0 text-xs text-neutral-400 dark:text-neutral-500">{job.period}</span>
+      <div class="{showAllJobs ? '' : 'max-h-80 overflow-hidden'}">
+        <div class="absolute bottom-2 left-[19px] top-2 w-px bg-neutral-200 dark:bg-neutral-800"></div>
+        <div class="space-y-8">
+        {#each jobs as job}
+          <div class="relative flex gap-4">
+            <div class="z-10 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-black/5 bg-white dark:border-white/10 dark:bg-neutral-900">
+              {#if job.logo}
+                <img src={job.logo} alt={job.company} class="h-full w-full object-cover" />
+              {:else}
+                <span class="text-sm font-semibold text-neutral-400 dark:text-neutral-500">{job.company[0]}</span>
+              {/if}
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                <p class="font-medium">{job.role}</p>
+                <span class="shrink-0 text-xs text-neutral-400 dark:text-neutral-500">remote · {job.period}</span>
+              </div>
+              <p class="mt-0.5 text-sm text-neutral-500 dark:text-neutral-400">
+                {#if job.url}<a class="hover:underline" href={job.url}>{job.company}</a>{:else}{job.company}{/if}
+              </p>
+              {#if job.about}
+                <p class="mt-1 text-xs leading-5 text-neutral-400 dark:text-neutral-500">{job.about}</p>
+              {/if}
+              <ul class="mt-2 list-disc space-y-1 pl-4 text-sm leading-6 text-neutral-600 marker:text-neutral-300 dark:text-neutral-400 dark:marker:text-neutral-700">
+                {#each job.points as point}
+                  <li>{point}</li>
+                {/each}
+              </ul>
+            </div>
           </div>
-          <p class="mt-0.5 text-sm text-neutral-500 dark:text-neutral-400">
-            {#if job.url}<a class="hover:underline" href={job.url}>{job.company}</a>{:else}{job.company}{/if} · remote
-          </p>
-          <ul class="mt-2 list-disc space-y-1 pl-4 text-sm leading-6 text-neutral-600 marker:text-neutral-300 dark:text-neutral-400 dark:marker:text-neutral-700">
-            {#each job.points as point}
-              <li>{point}</li>
-            {/each}
-          </ul>
+        {/each}
         </div>
-      {/each}
       </div>
       {#if !showAllJobs}
-        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/60 to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black,transparent)] dark:from-[#0d0d0d] dark:via-[#0d0d0d]/60"></div>
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-36 bg-gradient-to-t from-white from-25% via-white/70 to-transparent dark:from-[#0d0d0d] dark:via-[#0d0d0d]/70"></div>
       {/if}
     </div>
     <div class="mt-3 flex justify-center">
