@@ -14,8 +14,7 @@ dev server runs at http://localhost:5173
 ## build
 
 ```bash
-npm run build     # static site output in build/
-npm run preview   # serve the build locally
+npm run build
 ```
 
 ## writing a blog post
@@ -26,6 +25,7 @@ drop a markdown file in `src/posts/`, e.g. `src/posts/my-post.md`:
 ---
 title: my post
 date: 2026-08-01
+description: one line shown in the post list.
 ---
 
 post content in markdown.
@@ -36,6 +36,6 @@ it shows up on /blog automatically at /blog/my-post/. that's it.
 ## editing
 
 - text/sections/links: `src/routes/+page.svelte`
-- typewriter words: the `words` array at the top of the same file
-- usage bar numbers: bar widths + legend in the same file
-- colors: `tailwind.config.js`
+- experience + tools lists: the `jobs` and `tools` arrays in the same file
+- tool icons: `static/tools/`
+- header/nav/theme toggle: `src/routes/+layout.svelte`

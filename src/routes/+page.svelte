@@ -233,5 +233,6 @@
   <footer class="border-t border-black/5 pt-6 text-xs text-neutral-400 dark:border-white/5 dark:text-neutral-500">
     chitwan, nepal · {time}{#if visits} · {visits} visits{/if} · © 2026
     <a href="/Shakti_Rimal_Resume.pdf" target="_blank" class="hover:text-neutral-900 hover:underline dark:hover:text-white">s4way</a>
+    · <a href="https://github.com/wrrfsub/s4way" class="hover:text-neutral-900 hover:underline dark:hover:text-white">source</a>
   </footer>
 </main>
