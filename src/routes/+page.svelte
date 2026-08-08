@@ -142,6 +142,9 @@
         <img src="/tools/discord.svg" alt="" class="h-4 w-4 self-center" />discord</a>,
       or reach me by
       <a class="font-medium text-neutral-900 underline underline-offset-2 dark:text-white" href="mailto:saktirimala@gmail.com">email</a>.
+      everything i have built that is available to purchase is here to buy on
+      <a class="inline-flex items-baseline gap-1 font-medium text-neutral-900 underline underline-offset-2 dark:text-white" href="https://builtbybit.com/creators/s4way.652483/">
+        <img src="/tools/builtbybit.svg" alt="" class="h-4 w-4 self-center" />builtbybit</a>.
     </p>
   </section>
 
