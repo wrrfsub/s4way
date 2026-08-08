@@ -2,6 +2,9 @@
   import '@fontsource-variable/inter'
   import '../style.css'
   import { onMount } from 'svelte'
+  import { injectAnalytics } from '@vercel/analytics/sveltekit'
+
+  injectAnalytics()
 
   let { children } = $props()
   let dark = $state(false)

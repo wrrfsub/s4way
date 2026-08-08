@@ -5,6 +5,6 @@ export default {
   extensions: ['.svelte', '.md'],
   preprocess: [mdsvex({ extensions: ['.md'] })],
   kit: {
-    adapter: adapter(),
+    adapter: adapter({ fallback: '404.html' }),
   },
 }
