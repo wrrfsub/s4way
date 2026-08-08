@@ -1,6 +1,7 @@
 ---
 title: i regret buying this laptop
 date: 2026-07-30
+description: 8gb of ram, an rtx sticker, and 1 lakh npr of regret.
 ---
 
 i bought this laptop 2 years ago and i regret it more every month.

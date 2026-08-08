@@ -1,6 +1,7 @@
 ---
 title: why i shifted to cachyos from windows
 date: 2026-07-30
+description: windows was bloated and slow. cachyos gave me my ram and my dev environment back.
 ---
 
 i finally dumped windows and moved to [cachyos](https://cachyos.org/). should have done it years ago.

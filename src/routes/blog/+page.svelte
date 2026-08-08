@@ -6,21 +6,23 @@
   <title>blog · s4way</title>
 </svelte:head>
 
-<main class="min-h-screen grid content-center justify-items-center gap-1.5 p-4 text-center font-sans">
-  <h1 class="name-shimmer font-mono text-4xl font-bold tracking-tight">blog</h1>
+<main class="pb-16">
+  <h1 class="py-6 text-2xl font-semibold tracking-tight">blog</h1>
   {#if data.posts.length}
-    <ul class="mt-4">
+    <div>
       {#each data.posts as post}
-        <li class="mt-2">
-          <a class="no-underline border-b border-accent/30 pb-0.5 hover:border-accent" href={`/blog/${post.slug}/`}>{post.title}</a>
-          <span class="ml-2 text-xs text-faint">{post.date}</span>
-        </li>
+        <a href={`/blog/${post.slug}/`} class="group -mx-3 block rounded-lg px-3 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-900/60">
+          <div class="flex items-baseline justify-between gap-4">
+            <p class="font-medium group-hover:underline group-hover:underline-offset-2">{post.title}</p>
+            <span class="shrink-0 text-xs text-neutral-400 dark:text-neutral-500">{post.dateNice} · {post.minutes} min</span>
+          </div>
+          {#if post.description}
+            <p class="mt-1 text-sm leading-6 text-neutral-600 dark:text-neutral-400">{post.description}</p>
+          {/if}
+        </a>
       {/each}
-    </ul>
+    </div>
   {:else}
-    <p class="mt-2 max-w-[36ch] leading-relaxed text-muted">nothing here yet. i'm busy breaking prod.</p>
+    <p class="text-neutral-600 dark:text-neutral-400">nothing here yet. i'm busy breaking prod.</p>
   {/if}
-  <nav class="mt-6">
-    <a class="border-b border-accent/30 pb-0.5 no-underline hover:border-accent" href="/">← back home</a>
-  </nav>
 </main>

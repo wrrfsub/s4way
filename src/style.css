@@ -2,24 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  a {
-    color: theme(colors.accent);
-  }
+/* theme switch: circular reveal via view transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
-/* animated purple gradient on the name */
-.name-shimmer {
-  background: linear-gradient(90deg, #b78aff, #e8e0f5, #7c5cff, #b78aff);
-  background-size: 300% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: shimmer 6s linear infinite;
+/* gentle fade-up on page sections */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
 }
-@keyframes shimmer {
-  to { background-position: 300% 0; }
+main > * {
+  animation: rise 0.45s ease-out backwards;
 }
+main > :nth-child(2) { animation-delay: 0.05s; }
+main > :nth-child(3) { animation-delay: 0.1s; }
+main > :nth-child(4) { animation-delay: 0.15s; }
+main > :nth-child(5) { animation-delay: 0.2s; }
+main > :nth-child(6) { animation-delay: 0.25s; }
 
 /* dog bark on click */
 .bark {
@@ -28,7 +29,7 @@
   pointer-events: none;
   font-family: ui-monospace, monospace;
   font-size: 0.8rem;
-  color: theme(colors.accent);
+  @apply text-neutral-500 dark:text-neutral-400;
   animation: bark-float 0.9s ease-out forwards;
 }
 @keyframes bark-float {
@@ -38,71 +39,38 @@
 
 /* markdown post body */
 .post p, .post ul, .post ol {
-  margin: 1rem 0;
-  line-height: 1.7;
-  color: theme(colors.soft);
+  @apply my-4 leading-7 text-neutral-700 dark:text-neutral-300;
 }
-.post ul { list-style: disc; padding-left: 1.25rem; }
-.post ol { list-style: decimal; padding-left: 1.25rem; }
+.post ul { @apply list-disc pl-5; }
+.post ol { @apply list-decimal pl-5; }
 .post h2, .post h3 {
-  margin: 1.5rem 0 0.5rem;
-  font-weight: 700;
-  color: theme(colors.bright);
+  @apply mb-2 mt-8 font-semibold text-neutral-900 dark:text-white;
 }
-.post h2 { font-size: 1.25rem; }
+.post h2 { @apply text-lg; }
+.post a { @apply underline underline-offset-2; }
 .post code {
-  background: theme(colors.panel);
-  border-radius: 4px;
-  padding: 0.1rem 0.35rem;
-  font-size: 0.9em;
+  @apply rounded bg-neutral-100 px-1.5 py-0.5 text-[0.9em] dark:bg-neutral-900;
 }
 .post pre {
-  background: theme(colors.panel);
-  border: 1px solid theme(colors.edge);
-  border-radius: 8px;
-  padding: 1rem;
-  overflow-x: auto;
-  margin: 1rem 0;
+  @apply my-4 overflow-x-auto rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900;
 }
-.post pre code { background: none; padding: 0; }
+.post pre code { @apply bg-transparent p-0; }
 
-/* usage bar fills in on load */
-.usage-bar {
-  animation: fill 1.2s cubic-bezier(0.25, 1, 0.4, 1) 0.4s backwards;
-  transform-origin: left;
-}
-@keyframes fill {
-  from { transform: scaleX(0); }
-}
+/* prism syntax colors, muted to match the theme */
+.post .token.comment,
+.post .token.prolog { @apply text-neutral-400 dark:text-neutral-500; }
+.post .token.keyword,
+.post .token.builtin { @apply text-violet-600 dark:text-violet-400; }
+.post .token.function { @apply text-blue-600 dark:text-blue-400; }
+.post .token.string,
+.post .token.char { @apply text-emerald-600 dark:text-emerald-400; }
+.post .token.number,
+.post .token.boolean { @apply text-amber-600 dark:text-amber-400; }
+.post .token.operator,
+.post .token.punctuation { @apply text-neutral-500 dark:text-neutral-400; }
+.post .token.variable,
+.post .token.parameter { @apply text-neutral-700 dark:text-neutral-300; }
 
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(14deg); }
-  75% { transform: rotate(-8deg); }
+@media (prefers-reduced-motion: reduce) {
+  main > * { animation: none; }
 }
-.animate-wave {
-  animation: wave 1.2s ease-in-out infinite;
-  transform-origin: 70% 70%;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-.animate-blink {
-  animation: blink 1s steps(1) infinite;
-}
-
-@keyframes rise {
-  from { opacity: 0; transform: translateY(8px); }
-}
-main > * {
-  animation: rise 0.5s ease-out backwards;
-}
-main > :nth-child(2) { animation-delay: 0.05s; }
-main > :nth-child(3) { animation-delay: 0.1s; }
-main > :nth-child(4) { animation-delay: 0.15s; }
-main > :nth-child(5) { animation-delay: 0.2s; }
-main > :nth-child(6) { animation-delay: 0.25s; }
-main > :nth-child(7) { animation-delay: 0.3s; }
-main > :nth-child(8) { animation-delay: 0.35s; }
-main > :nth-child(9) { animation-delay: 0.4s; }

@@ -1,6 +1,7 @@
 ---
 title: demo
 date: 2026-07-30
+description: first post. testing if this thing works.
 ---
 
 first post. testing if this thing works.

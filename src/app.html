@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>s4way</title>
     <link rel="icon" type="image/webp" href="/img/s4way.webp" />
+    <script>
+      const t = localStorage.getItem('theme')
+      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      }
+    </script>
     %sveltekit.head%
   </head>
-  <body class="bg-ink text-bright">
+  <body class="bg-white text-neutral-900 transition-colors dark:bg-[#0d0d0d] dark:text-neutral-100">
     <div>%sveltekit.body%</div>
     <script src="/oneko.js"></script>
   </body>
