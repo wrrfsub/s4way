@@ -207,7 +207,9 @@
     <h2 class="text-sm font-medium capitalize text-neutral-400 dark:text-neutral-500">experience</h2>
     <div class="relative mt-4">
       <div class="{showAllJobs ? '' : 'max-h-80 overflow-hidden'}">
-        <div class="absolute bottom-2 left-[17px] top-2 w-px bg-neutral-200 dark:bg-neutral-800"></div>
+        <div class="absolute bottom-2 left-[17px] top-2 w-px overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+          <div class="timeline-beam"></div>
+        </div>
         <div class="space-y-8">
         {#each jobs as job}
           <div class="relative flex gap-4">
